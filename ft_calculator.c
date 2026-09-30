@@ -22,6 +22,37 @@ int	paren(char *str)
 	return (0);
 }
 
+int	par_in(char *str, int p)
+{
+	char	*before;
+	char	*par;
+	char	*after;
+	int	i;
+	int	j;
+	char	*dict;
+
+	dict = " ([{ ([{";
+	i = 0;
+	j = 0;
+	while (str[i])
+	{
+		if (str[i] = dict[p])
+		{
+			before = (char *)malloc(sizeof(char) * j + 1);
+			j = 0;
+		}
+		if (str[i] = dict[p + 3])
+		{
+			par = (char *)malloc(sizeof(char) * j + 1);
+			j = 0;
+		}
+		i++;
+		j++;
+	}
+	after = (char *)malloc(sizeof(char) * j + 1);
+
+}
+
 int	ft_calculator(char *str)
 {
 	int	result;
