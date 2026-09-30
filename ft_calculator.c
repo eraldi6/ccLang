@@ -31,6 +31,10 @@ int	ft_calculator(char *str)
 		exp = ft_split(str, " ");
 	//nje funksion qe gjen kllapat dhe therret calc per brenda kllapave dhe whole exp simultaneously
 
+	if (paren == 1)
+	{
+		return (par_in(str, 1));
+	}
 	return (result);
 }
 
