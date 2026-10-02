@@ -29,6 +29,7 @@ int	par_in(char *str, int p)
 	char	*after;
 	int	i;
 	int	j;
+	int	k;
 	char	*dict;
 
 	dict = " ([{ ([{";
@@ -39,11 +40,25 @@ int	par_in(char *str, int p)
 		if (str[i] = dict[p])
 		{
 			before = (char *)malloc(sizeof(char) * j + 1);
+			if (before)
+			{
+				i = i - j;
+				k = 0;
+				while (k < j)
+				{
+					before[k] = str[i];
+					i++;
+					k++;
+				}
+			}
 			j = 0;
 		}
 		if (str[i] = dict[p + 3])
 		{
 			par = (char *)malloc(sizeof(char) * j + 1);
+			if (par)
+			{
+
 			j = 0;
 		}
 		i++;
