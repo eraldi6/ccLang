@@ -68,6 +68,8 @@ int	par_in(char *str, int p)
 
 }
 
+int	ft_exp_cal(char **exp);
+
 int	ft_calculator(char *str)
 {
 	int	result;
