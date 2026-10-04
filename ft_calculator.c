@@ -3,6 +3,8 @@
 
 char	**ft_split(char *str, char *charset);
 int	ft_atoi(char *str);
+char	*ft_itoa(int nbr);
+char	**ft_nonull(char **exp);
 
 int	paren(char *str)
 {
@@ -67,8 +69,27 @@ int	par_in(char *str, int p)
 	after = (char *)malloc(sizeof(char) * j + 1);
 
 }
-
+//this funct takes no parentheses.
 int	ft_exp_cal(char **exp);
+{
+	int	res;
+	int	i;
+
+	i = 0;
+	while (exp[i])
+	{
+		if (exp[i][0] == '*')
+		{
+			exp[i] = itoa(atoi(exp[i - 1]) * atoi(exp[i + 1]));
+			exp = ft_nonull(exp);
+			i = 0;
+		}
+		if (exp[1] == NULL)
+			res = atoi(exp[0]);
+		i++;
+	}
+	return (res);
+}
 
 int	ft_calculator(char *str)
 {
@@ -76,7 +97,11 @@ int	ft_calculator(char *str)
 	char	**exp;
 
 	if (!paren)
+	{
 		exp = ft_split(str, " ");
+		result = ft_exp_cal(exp);
+		return (result);
+	}
 	//nje funksion qe gjen kllapat dhe therret calc per brenda kllapave dhe whole exp simultaneously
 
 	if (paren == 1)
